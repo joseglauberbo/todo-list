@@ -35,6 +35,14 @@ class TodoListsController < ApplicationController
     end
   end
 
+  def destroy
+    @todo_list.destroy
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: 'Todo list was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     
     def set_todo_list
